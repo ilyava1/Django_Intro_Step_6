@@ -1,0 +1,42 @@
+# API-запросs
+
+@baseUrl = http://localhost:8000/api/adv
+
+# создание объявления
+POST {{baseUrl}}/
+Content-Type: application/json
+Authorization: Token 7b2e2c64898319d2c1339f4fdd2c96e514d21839
+
+{
+  "title": "МАЗ-31234567",
+  "description": "Пробег по Белоруси"
+}
+
+###
+
+# закрытие объявления
+PATCH {{baseUrl}}/11/
+Content-Type: application/json
+Authorization: Token 26abf99e5bd9ab3847cc56fa4be69822f34ff9a7
+
+{  
+  "status": "CLOSED"
+}
+
+###
+
+# получение всех объявлений
+GET {{baseUrl}}/
+Content-Type: application/json
+
+###
+
+# получение всех объявлений по поиску
+GET {{baseUrl}}/?search=хозяин
+Content-Type: application/json
+
+###
+
+# удаление объявления
+DELETE {{baseUrl}}/25/
+Content-Type: application/json
