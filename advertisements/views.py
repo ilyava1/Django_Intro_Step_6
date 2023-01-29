@@ -2,6 +2,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
+
 from advertisements.models import Advertisement
 from advertisements.serializers import AdvertisementSerializer
 from advertisements.permissions import IsOwner
@@ -16,7 +17,6 @@ class AdvertisementViewSet(ModelViewSet):
     serializer_class = AdvertisementSerializer
     permission_classes = [IsAuthenticated, IsOwner]
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filterset_fields = ['created_at', 'status']
     search_fields = ['title', 'description']
 
 
@@ -27,7 +27,3 @@ class AdvertisementViewSet(ModelViewSet):
         elif self.action in ["destroy", "update", "partial_update"]:
             return [IsOwner()]
         return []
-
-
-    # def perform_create(self, serializer):
-    #     serializer.save(user=self.request.user)

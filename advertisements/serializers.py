@@ -43,7 +43,6 @@ class AdvertisementSerializer(serializers.ModelSerializer):
             return super().create(validated_data)
         else:
             raise ValidationError(f'Допускается не более {MAX_ADV} открытых объявлений у пользователя. Объявление не создано')
-            return Advertisement
 
     # def validate(self, data):
     #     """Метод для валидации. Вызывается при создании и обновлении."""
