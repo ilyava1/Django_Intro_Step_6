@@ -8,7 +8,7 @@ Content-Type: application/json
 Authorization: Token 7b2e2c64898319d2c1339f4fdd2c96e514d21839
 
 {
-  "title": "МАЗ-31234567",
+  "title": "МАЗ-31234567_10",
   "description": "Пробег по Белоруси"
 }
 
@@ -31,8 +31,8 @@ Content-Type: application/json
 
 ###
 
-# получение всех объявлений по поиску
-GET {{baseUrl}}/?search=хозяин
+# поиск по вхождению слова
+GET {{baseUrl}}/?search=лет
 Content-Type: application/json
 
 ###
@@ -40,3 +40,14 @@ Content-Type: application/json
 # удаление объявления
 DELETE {{baseUrl}}/25/
 Content-Type: application/json
+
+###
+
+# правка объявления
+PATCH {{baseUrl}}/29/
+Content-Type: application/json
+Authorization: Token 7b2e2c64898319d2c1339f4fdd2c96e514d21839
+
+{
+  "status": "CLOSED"
+}
