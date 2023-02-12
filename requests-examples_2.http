@@ -11,32 +11,32 @@ Content-Type: application/json
 # создание объявления
 POST {{baseUrl}}/
 Content-Type: application/json
-Authorization: Token 26abf99e5bd9ab3847cc56fa4be69822f34ff9a7
+Authorization: Token 7b2e2c64898319d2c1339f4fdd2c96e514d21839
 
 {
-  "title": "Лада 4х4",
-  "description": "Без проблем, один хозяин"
+  "title": "Лада Калина-2",
+  "description": "Только-только-только с завода"
 }
 
 ###
 
 # попытка поменять объявление
-PATCH {{baseUrl}}/1/
+PATCH {{baseUrl}}/22/
 Content-Type: application/json
-Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+Authorization: Token 7b2e2c64898319d2c1339f4fdd2c96e514d21839
 
-{
-  "status": "CLOSED"
+{  
+  "status": "OPEN"
 }
 
 ###
 
 # фильтрация по создателю
-GET {{baseUrl}}/advertisements/?creator=3
+GET {{baseUrl}}/?creator_id=1
 Content-Type: application/json
 
 ###
 
 # фильтрация по дате
-GET {{baseUrl}}/advertisements/?created_at_before=2020-10-01
+GET {{baseUrl}}/?created_at_before=2023-01-29
 Content-Type: application/json
